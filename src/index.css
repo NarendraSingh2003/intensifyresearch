@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Intensify Research Brand Theme - Warm Beige with Orange */
+    --background: 35 35% 95%;
+    --foreground: 220 25% 15%;
+
+    --card: 35 30% 98%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 35 30% 98%;
+    --popover-foreground: 220 25% 15%;
+
+    /* Orange Primary - Brand Accent */
+    --primary: 28 95% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Deep Blue Secondary */
+    --secondary: 220 60% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Warm muted tones */
+    --muted: 35 20% 90%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 28 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 85%;
+    --input: 35 25% 92%;
+    --ring: 28 95% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --stock-green: 145 70% 40%;
+    --stock-red: 0 75% 50%;
+    --gold: 38 90% 50%;
+    --deep-navy: 220 60% 20%;
+    --navy: 220 55% 30%;
+    --orange: 28 95% 55%;
+    --warm-beige: 35 35% 95%;
+    --tan: 30 30% 85%;
+    --glow-orange: 28 100% 60%;
+    --glow-gold: 38 100% 55%;
+
+    --sidebar-background: 35 30% 98%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 28 95% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 25% 92%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 28 95% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Glowing effects */
+  .glow-orange {
+    box-shadow: 0 0 20px hsl(var(--glow-orange) / 0.4),
+                0 0 40px hsl(var(--glow-orange) / 0.2);
+  }
+
+  .glow-orange-intense {
+    box-shadow: 0 0 30px hsl(var(--glow-orange) / 0.6),
+                0 0 60px hsl(var(--glow-orange) / 0.3),
+                0 0 90px hsl(var(--glow-orange) / 0.1);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(var(--glow-gold) / 0.4),
+                0 0 40px hsl(var(--glow-gold) / 0.2);
+  }
+
+  .text-glow-orange {
+    text-shadow: 0 0 20px hsl(var(--glow-orange) / 0.5),
+                 0 0 40px hsl(var(--glow-orange) / 0.3);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 20px hsl(var(--glow-gold) / 0.5),
+                 0 0 40px hsl(var(--glow-gold) / 0.3);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, 
+      hsl(35 40% 92%) 0%, 
+      hsl(30 35% 88%) 50%, 
+      hsl(35 30% 85%) 100%);
+  }
+
+  .bg-section-gradient {
+    background: linear-gradient(180deg, 
+      hsl(var(--background)) 0%, 
+      hsl(35 30% 92%) 100%);
+  }
+
+  .bg-card-gradient {
+    background: linear-gradient(145deg, 
+      hsl(var(--card)) 0%, 
+      hsl(35 25% 96%) 100%);
+  }
+
+  .bg-navy-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--deep-navy)) 0%, 
+      hsl(var(--navy)) 100%);
+  }
+
+  /* Ticker animation */
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-ticker {
+    animation: ticker 30s linear infinite;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow */
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--glow-orange) / 0.4),
+                  0 0 40px hsl(var(--glow-orange) / 0.2);
+    }
+    50% { 
+      box-shadow: 0 0 30px hsl(var(--glow-orange) / 0.6),
+                  0 0 60px hsl(var(--glow-orange) / 0.3);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Chart line animation */
+  @keyframes draw-line {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .animate-draw-line {
+    animation: draw-line 3s ease-out forwards;
+  }
+
+  /* Candle flicker */
+  @keyframes candle-up {
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(0.95); }
+  }
+
+  .animate-candle {
+    animation: candle-up 2s ease-in-out infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
